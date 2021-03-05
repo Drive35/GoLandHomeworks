@@ -24,7 +24,7 @@ func main () {
 	i2 := 0
 	for i := 0; i < n; i++ {
 		if arr[i]%2 == 0 {
-			c[i2] = arr[i]
+			c[i2] = i
 			i2++
 		}
 	}
