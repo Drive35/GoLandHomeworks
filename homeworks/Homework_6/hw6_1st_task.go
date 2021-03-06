@@ -14,13 +14,13 @@ func main () {
 
 	var n int
 	fmt.Scanf("%d", &n)
-	arr := [70]int{}
+	arr := [9]int{}
 	for i := 0; i < n; i++ {
 		var a int
 		fmt.Scanf("%d", &a)
 		arr[i] = a
 	}
-	c := [70]int{}
+	c := [9]int{}
 	i2 := 0
 	for i := 0; i < n; i++ {
 		if arr[i]%2 == 0 {
@@ -28,5 +28,5 @@ func main () {
 			i2++
 		}
 	}
-	fmt.Println(c)
+	fmt.Println("Ответ: ", c)
 }

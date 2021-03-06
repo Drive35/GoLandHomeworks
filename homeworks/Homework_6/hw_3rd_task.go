@@ -18,9 +18,9 @@ func main() {
 
 	var n, b int
 	fmt.Scanf("%d \n", &n)
-	arr := [10]int{}
 	fmt.Println("На что нужно делить:")
 	fmt.Scanf("%d \n", &b)
+	arr := [10]int{}
 	for i := 0; i < n; i++ {
 		var a int
 		fmt.Scanf("%d", &a)
@@ -32,12 +32,12 @@ func main() {
 			fmt.Println("На 0 нельзя делить")
 			break
 		} else {
-			number := arr[i]
-			if number%b == 0 {
+			f := arr[i]
+			if f%b == 0 {
 				counter += 1
 			}
 		}
 	}
 	fmt.Println(arr)
-	fmt.Println(counter)
+	fmt.Println("Ответ: ", counter)
 }

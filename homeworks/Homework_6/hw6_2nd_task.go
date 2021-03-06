@@ -28,5 +28,5 @@ func main() {
 	for i := b + 1; i < n; i++ {
 		sumd = arr[i] + sumd
 	}
-	fmt.Println(sumd)
+	fmt.Println("Ответ: ", sumd)
 }
