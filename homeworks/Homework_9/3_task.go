@@ -25,7 +25,7 @@ func CreateArrA(rows, columns, randomRange int) [][]int {
 }
 func main() {
 	N := rand.Intn(100)
-	b := rand.Intn(1)
+	b := rand.Intn(2)
 	arr := CreateArrA(N, 2, b)
 	maxi := 0
 	for i := 0; i < len(arr); i++ {
