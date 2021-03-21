@@ -2,10 +2,16 @@ package main
 
 import "fmt"
 
-func getFullName(s Student) {
-	fmt.Println(s.FirstName, s.LastName)
+type Student struct {
+	FirstName string
+	LastName  string
+	Marks     []int
 }
-func getAverageMark(a Student) {
+
+func (g Student) getFullName() {
+	fmt.Println(g.FirstName, g.LastName)
+}
+func (a Student) getAverageMark() {
 	sumi := 0
 	average := 0
 	for i := 0; i < len(a.Marks); i++ {
@@ -13,12 +19,6 @@ func getAverageMark(a Student) {
 	}
 	average = sumi / len(a.Marks)
 	fmt.Println(average)
-}
-
-type Student struct {
-	FirstName string
-	LastName  string
-	Marks     []int
 }
 
 func main() {
@@ -32,9 +32,8 @@ func main() {
 		"Сидоров",
 		[]int{4, 10, 9, 1, 1},
 	}
-	students := []Student{s1, s2}
-	for _, v := range students {
-		getFullName(v)
-		getAverageMark(v)
-	}
+	s1.getFullName()
+	s1.getAverageMark()
+	s2.getFullName()
+	s2.getAverageMark()
 }
