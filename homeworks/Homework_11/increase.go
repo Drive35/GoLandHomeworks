@@ -1,8 +1,8 @@
 package main
 
 import (
-	"GoLandHomeworks/homeworks/Homework_11/models"
 	"encoding/json"
+	"github.com/ZhomartZhan/GoLandHomeworks/homeworks/Homework_11/models"
 	"io/ioutil"
 	"os"
 )
@@ -17,9 +17,9 @@ func main() {
 	if err != nil {
 		panic(err)
 	}
-	for _, v := range clients3 {
+	for i, _ := range clients3 {
 		a := 1000
-		v.IncreaseBalance(a)
+		clients3[i].IncreaseBalance(a)
 	}
 	clientsJson3, err := json.Marshal(clients3)
 	if err != nil {
