@@ -1,8 +1,8 @@
 package main
 
 import (
-	"GoLandHomeworks/homeworks/Homework_11/models"
 	"encoding/json"
+	"github.com/ZhomartZhan/GoLandHomeworks/homeworks/Homework_11/models"
 	"io/ioutil"
 )
 

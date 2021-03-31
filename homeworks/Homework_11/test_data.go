@@ -1,9 +1,9 @@
 package main
 
 import (
-	"GoLandHomeworks/homeworks/Homework_11/models"
 	"encoding/json"
 	"fmt"
+	"github.com/ZhomartZhan/GoLandHomeworks/homeworks/Homework_11/models"
 	"os"
 )
 
