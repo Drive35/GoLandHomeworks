@@ -1,11 +1,12 @@
 package main
 
 import (
-	"github.com/kkdai/youtube/v2"
+	"github.com/kkdai/youtube"
 	"github.com/urfave/cli"
 	"io/ioutil"
 	"log"
 	"os"
+	"strings"
 )
 
 var (
@@ -28,19 +29,32 @@ func downloadFromYoutube(url string) error {
 	return nil
 }
 
-func mainAction4(c *cli.Context) error {
-	data, err := ioutil.ReadFile("data.txt")
+func mainAction4() error {
+	data, err := ioutil.ReadFile(file)
 	if err != nil {
 		panic(err)
+	}
+	dataStr := string(data)
+	dataStrArr := strings.Split(dataStr, "\r\n")
+	for _, v := range dataStrArr {
+		err = downloadFromYoutube(v)
+		if err != nil {
+			return err
+		}
 	}
 	return nil
 }
 
 func downloadAction(c *cli.Context) error {
-	err := downloadFromYoutube(url)
-	if err != nil {
-		return err
+	if url != "" {
+		err := downloadFromYoutube(url)
+		if err != nil {
+			return err
+		}
+	} else if file != "" {
+		return mainAction4()
 	}
+
 	return nil
 }
 
@@ -67,18 +81,17 @@ func main() {
 					Name:        "file,f",
 					Usage:       "file string",
 					Destination: &file,
-					Value:       "data.txt",
+					Value:       "",
 				},
 				cli.StringFlag{
 					Name:        "url,u",
 					Usage:       "url string",
 					Destination: &url,
-					Value:       "https://www.youtube.com/watch?v=nmDFmI2oNBY",
+					Value:       "",
 				},
 			},
 		},
 	}
-	app.Action = mainAction4
 	err := app.Run(os.Args)
 	if err != nil {
 		log.Fatal(err)
